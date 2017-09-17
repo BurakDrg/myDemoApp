@@ -44,11 +44,6 @@ public class App
           MergeSort(inputList,0,inputList.size()-1);
 
 
-          String input2 = req.queryParams("input2").replaceAll("\\s","");
-          int input2AsInt = Integer.parseInt(input2);
-
-          boolean result = App.search(inputList, input2AsInt);
-
          Map map = new HashMap();
 	  for(int i = 0; i < inputList.size(); i++){
 			if(i<inputList.size()-1){

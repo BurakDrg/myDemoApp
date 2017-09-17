@@ -55,4 +55,23 @@ public class AppTest
       assertFalse(new App().search(null, 1));
     }
 
+    public void testNullMergeSort(){
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, null));
+      assertFalse(new App().MergeSort(array, 0,3));
+    }
+    
+    public void testEmptyArrayMergeSort(){
+      ArrayList<Integer> array = new ArrayList<>();
+      assertFalse(new App().MergeSort(array, 0,1));
+    }
+
+    public void testCompute(){
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      assertTrue(new App().MergeSort(array, 0,3));
+    }
+
+    public void testComputeNegativeNumbersMix(){
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, -1, 4));
+      assertTrue(new App().MergeSort(array, 0,3));
+    }
 }

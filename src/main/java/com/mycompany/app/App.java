@@ -76,10 +76,15 @@ public class App
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 
-     public static void MergeSort(ArrayList<Integer> A, int p, int r){
+     public static boolean MergeSort(ArrayList<Integer> A, int p, int r){
 		//p = starting position
 		//r = end position
-		
+		if(A.size()<=0)
+			return false;
+		for(int i = 0; i < A.size();i++){
+			if(A.get(i)==null)
+				return false;
+		}
 		
 		// A = [ ][ ][ ][ ][ ][ ][ ][ ][ ][ ]
 		//      ^                          ^
@@ -91,6 +96,7 @@ public class App
 			MergeSort(A,m+1,r);
 			Merge(A,p,m,r);
 		}
+		return true;
 	}
 	
 	public static void Merge(ArrayList<Integer> A, int p, int m, int r){

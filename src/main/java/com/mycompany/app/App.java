@@ -41,6 +41,7 @@ public class App
             inputList.add(value);
           }
           System.out.println(inputList);
+          MergeSort(inputList,0,inputList.size()-1);
 
 
           String input2 = req.queryParams("input2").replaceAll("\\s","");
@@ -70,5 +71,41 @@ public class App
         }
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
+
+     public static void MergeSort(ArrayList<Integer> A, int p, int r){
+		//p = starting position
+		//r = end position
+		
+		
+		// A = [ ][ ][ ][ ][ ][ ][ ][ ][ ][ ]
+		//      ^                          ^
+		//      |                          |
+		//      P <-----Sorted Place-----> R ( You have to choose which item do you want to sort)
+		if(p<r){
+			int m=(p+r)/2;
+			MergeSort(A,p,m);
+			MergeSort(A,m+1,r);
+			Merge(A,p,m,r);
+		}
+	}
+	
+	public static void Merge(ArrayList<Integer> A, int p, int m, int r){
+		int i =p;
+		int j=m+1;
+		int k=p;
+		int temp[] = new int[A.size()];
+		while(i<=m && j<=r){
+			if(A.get(i)<A.get(j))
+				temp[k++]=A.get(i++);
+			else
+				temp[k++]=A.get(j++);
+		}
+		while(i<=m)
+			temp[k++]=A.get(i++);
+		while(j<=r)
+			temp[k++]=A.get(j++);
+		for(int t = p; t <=r; t++)
+			A.set(t, temp[t]);
+	}
 }
 

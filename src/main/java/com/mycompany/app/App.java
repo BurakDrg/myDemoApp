@@ -50,7 +50,6 @@ public class App
           boolean result = App.search(inputList, input2AsInt);
 
          Map map = new HashMap();
-         Map map = new HashMap();
 	  for(int i = 0; i < inputList.size(); i++){
 			if(i<inputList.size()-1){
 				//hepsi = String.valueof(inputList.get(i)) + ", ";

@@ -70,8 +70,13 @@ public class AppTest
       assertTrue(new App().MergeSort(array, 0,3));
     }
 
-    public void testComputeNegativeNumbersMix(){
-      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, -1, 4));
+    public void testComputeNegativeNumbers(){
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(-1, -2, -3, -4));
+      assertTrue(new App().MergeSort(array, 0,3));
+    }
+
+    public void testComputeAllNumbers(){
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 0, -1, 4));
       assertTrue(new App().MergeSort(array, 0,3));
     }
 }

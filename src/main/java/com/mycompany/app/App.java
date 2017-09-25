@@ -39,7 +39,6 @@ public class App
           {
 	    inputListString.add(sc1.nextLine().replaceAll("\\s",""));
           }
-          System.out.println(inputList);
 	  String input2 = req.queryParams("input2");
           java.util.Scanner sc2 = new java.util.Scanner(input1);
           java.util.ArrayList<String> inputListString2 = new java.util.ArrayList<>();
@@ -54,7 +53,7 @@ public class App
          Map map = new HashMap();
 	  //if(count == 0) map.put("result","Bulunamadı");
 	  //else map.put("result",count+" tane bulundu");
-	  map.put("result",result);
+	  map.put("result","tamam");
           return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 

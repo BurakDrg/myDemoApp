@@ -41,7 +41,7 @@ public class App
 	    inputListString.add(sc1.next().replaceAll("\\s",""));
           }
 	  String input2 = req.queryParams("input2");
-          java.util.Scanner sc2 = new java.util.Scanner(input1);
+          java.util.Scanner sc2 = new java.util.Scanner(input2);
           java.util.ArrayList<String> inputListString2 = new java.util.ArrayList<>();
 	while (sc2.hasNext())
           {
@@ -79,7 +79,7 @@ public class App
      public static boolean SearchWord(ArrayList<String> A, ArrayList<String> B){
 	//if(A.size()==0 || B.size()==0) return false;
 	for(int i = 0; i < A.size();i++){
-		if(A.get(i)==B.get(0))	count++;
+		if(A.get(i).equals(B.get(0)))	count++;
 	}
 	return true;
      }

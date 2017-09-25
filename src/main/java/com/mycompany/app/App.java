@@ -52,9 +52,9 @@ public class App
 
 
          Map map = new HashMap();
-	  if(count == 0) map.put("result","Bulunamadı"+count);
+	  if(count == 0) map.put("result","Bulunamadı");
 	  else map.put("result",count+" tane bulundu");
-	  
+	  count =0;
           return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 
@@ -77,7 +77,7 @@ public class App
     }
 
      public static boolean SearchWord(ArrayList<String> A, ArrayList<String> B){
-	//if(A.size()==0 || B.size()==0) return false;
+	if(A.size()==0 || B.size()==0) return false;
 	for(int i = 0; i < A.size();i++){
 		if(A.get(i).equals(B.get(0)))
 			count++;

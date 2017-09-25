@@ -24,7 +24,7 @@ public class App
 
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
-
+	int count=0;
         get("/", (req, res) -> "Hello, World");
 
         post("/compute", (req, res) -> {
@@ -35,26 +35,28 @@ public class App
           java.util.Scanner sc1 = new java.util.Scanner(input1);
           sc1.useDelimiter("[;\r\n]+");
           java.util.ArrayList<Integer> inputList = new java.util.ArrayList<>();
+          java.util.ArrayList<String> inputListString = new java.util.ArrayList<>();
           while (sc1.hasNext())
           {
             int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
             inputList.add(value);
+	    inputListString.add(sc1.nextLine().replaceAll("\\s",""));
           }
           System.out.println(inputList);
-          MergeSort(inputList,0,inputList.size()-1);
+	  String input2 = req.queryParams("input2");
+          java.util.Scanner sc2 = new java.util.Scanner(input1);
+          java.util.ArrayList<String> inputListString2 = new java.util.ArrayList<>();
+	while (sc2.hasNext())
+          {
+	    inputListString2.add(sc2.nextLine().replaceAll("\\s",""));
+          }
+
+          MergeSort(inputListString,inputListString2,count);
 
 
          Map map = new HashMap();
-	  for(int i = 0; i < inputList.size(); i++){
-			if(i<inputList.size()-1){
-				//hepsi = String.valueof(inputList.get(i)) + ", ";
-				map.put("result", inputList);
-			}
-			else{
-				//hepsi = String.valueof(inputList.get(i));
-				map.put("result", inputList);
-			}
-	  }
+	  if(count == 0) map.put("result","Bulunamadı");
+	  else map.put("result",count+" tane bulundu");
           return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 
@@ -76,46 +78,12 @@ public class App
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 
-     public static boolean MergeSort(ArrayList<Integer> A, int p, int r){
-		//p = starting position
-		//r = end position
-		if(A.size()<=0)
-			return false;
-		for(int i = 0; i < A.size();i++){
-			if(A.get(i)==null)
-				return false;
-		}
-		
-		// A = [ ][ ][ ][ ][ ][ ][ ][ ][ ][ ]
-		//      ^                          ^
-		//      |                          |
-		//      P <-----Sorted Place-----> R ( You have to choose which item do you want to sort)
-		if(p<r){
-			int m=(p+r)/2;
-			MergeSort(A,p,m);
-			MergeSort(A,m+1,r);
-			Merge(A,p,m,r);
-		}
-		return true;
+     public static boolean MergeSort(ArrayList<String> A, ArrayList<String> B, int count){
+	if(A.size()==0 || B.size()==0) return false;
+	for(int i = 0; i < A.size();i++){
+		if(A.get(i)==B.get(0))	count++;
 	}
-	
-	public static void Merge(ArrayList<Integer> A, int p, int m, int r){
-		int i =p;
-		int j=m+1;
-		int k=p;
-		int temp[] = new int[A.size()];
-		while(i<=m && j<=r){
-			if(A.get(i)<A.get(j))
-				temp[k++]=A.get(i++);
-			else
-				temp[k++]=A.get(j++);
-		}
-		while(i<=m)
-			temp[k++]=A.get(i++);
-		while(j<=r)
-			temp[k++]=A.get(j++);
-		for(int t = p; t <=r; t++)
-			A.set(t, temp[t]);
-	}
+	return true;
+     }
 }
 

@@ -85,7 +85,8 @@ public class App
 		if(A.get(i).equals(B.get(0)))
 			count++;
 	}
-	return true;
+        if(count == 0) return false;
+	else return true;
      }
 }
 

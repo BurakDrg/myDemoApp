@@ -90,4 +90,10 @@ public class AppTest
       ArrayList<String> array2 = new ArrayList<>(Arrays.asList("bilgisayar", "kalem"));
       assertFalse(new App().SearchWord(array, array2));
     }
+
+    public void SearchWordNotFound() {
+      ArrayList<String> array = new ArrayList<>(Arrays.asList("Araba", "kalem", "bilgisayar", "silgi"));
+      ArrayList<String> array2 = new ArrayList<>(Arrays.asList("cetvel"));
+      assertFalse(new App().SearchWord(array, array2));
+    }
 }

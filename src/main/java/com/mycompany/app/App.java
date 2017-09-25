@@ -52,7 +52,7 @@ public class App
 
 
          Map map = new HashMap();
-	  if(count == 0) map.put("result","Bulunamadı"+inputListString2.get(0));
+	  if(count == 0) map.put("result","Bulunamadı"+count);
 	  else map.put("result",count+" tane bulundu");
 	  
           return new ModelAndView(map, "compute.mustache");
@@ -79,7 +79,8 @@ public class App
      public static boolean SearchWord(ArrayList<String> A, ArrayList<String> B){
 	//if(A.size()==0 || B.size()==0) return false;
 	for(int i = 0; i < A.size();i++){
-		if(A.get(i).equals(B.get(0)))	count++;
+		if(A.get(i).equals(B.get(0)))
+			count++;
 	}
 	return true;
      }

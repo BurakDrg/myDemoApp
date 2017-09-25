@@ -51,9 +51,9 @@ public class App
 
 
          Map map = new HashMap();
-	  //if(count == 0) map.put("result","Bulunamadı");
-	  //else map.put("result",count+" tane bulundu");
-	  map.put("result","tamam");
+	  if(count == 0) map.put("result","Bulunamadı");
+	  else map.put("result",count+" tane bulundu");
+	  
           return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 

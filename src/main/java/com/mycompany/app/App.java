@@ -38,21 +38,21 @@ public class App
           java.util.ArrayList<String> inputListString = new java.util.ArrayList<>();
           while (sc1.hasNext())
           {
-	    inputListString.add(sc1.nextLine().replaceAll("\\s",""));
+	    inputListString.add(sc1.next().replaceAll("\\s",""));
           }
 	  String input2 = req.queryParams("input2");
           java.util.Scanner sc2 = new java.util.Scanner(input1);
           java.util.ArrayList<String> inputListString2 = new java.util.ArrayList<>();
 	while (sc2.hasNext())
           {
-	    inputListString2.add(sc2.nextLine().replaceAll("\\s",""));
+	    inputListString2.add(sc2.next().replaceAll("\\s",""));
           }
 
           SearchWord(inputListString,inputListString2);
 
 
          Map map = new HashMap();
-	  if(count == 0) map.put("result","Bulunamadı");
+	  if(count == 0) map.put("result","Bulunamadı"+inputListString.get(0));
 	  else map.put("result",count+" tane bulundu");
 	  
           return new ModelAndView(map, "compute.mustache");

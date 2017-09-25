@@ -54,4 +54,10 @@ public class AppTest
     public void testNull() {
       assertFalse(new App().search(null, 1));
     }
+
+    public void SearchWordFound() {
+      ArrayList<String> array = new ArrayList<>(Arrays.asList("Araba", "kalem", "bilgisayar", "silgi"));
+      ArrayList<String> array2 = new ArrayList<>(Arrays.asList("bilgisayar"));
+      assertTrue(new App().SearchWord(array, array2));
+    }
 }

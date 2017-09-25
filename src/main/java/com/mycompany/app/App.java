@@ -48,7 +48,7 @@ public class App
 	    inputListString2.add(sc2.nextLine().replaceAll("\\s",""));
           }
 
-          MergeSort(inputListString,inputListString2,count);
+          SearchWord(inputListString,inputListString2);
 
 
          Map map = new HashMap();
@@ -76,7 +76,7 @@ public class App
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 
-     public static boolean MergeSort(ArrayList<String> A, ArrayList<String> B, int count){
+     public static boolean SearchWord(ArrayList<String> A, ArrayList<String> B){
 	//if(A.size()==0 || B.size()==0) return false;
 	for(int i = 0; i < A.size();i++){
 		if(A.get(i)==B.get(0))	count++;

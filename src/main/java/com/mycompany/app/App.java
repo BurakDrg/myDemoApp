@@ -52,7 +52,7 @@ public class App
 
 
          Map map = new HashMap();
-	  if(count == 0) map.put("result","Bulunamadı"+inputListString.get(0));
+	  if(count == 0) map.put("result","Bulunamadı"+inputListString2.get(0));
 	  else map.put("result",count+" tane bulundu");
 	  
           return new ModelAndView(map, "compute.mustache");

@@ -60,4 +60,34 @@ public class AppTest
       ArrayList<String> array2 = new ArrayList<>(Arrays.asList("bilgisayar"));
       assertTrue(new App().SearchWord(array, array2));
     }
+
+    public void Array1Null() {
+      ArrayList<String> array = new ArrayList<>(Arrays.asList());
+      ArrayList<String> array2 = new ArrayList<>(Arrays.asList("bilgisayar"));
+      assertFalse(new App().SearchWord(array, array2));
+    }
+
+    public void Array2Null() {
+      ArrayList<String> array = new ArrayList<>(Arrays.asList("Araba", "kalem", "bilgisayar", "silgi"));
+      ArrayList<String> array2 = new ArrayList<>(Arrays.asList());
+      assertFalse(new App().SearchWord(array, array2));
+    }
+
+    public void Array1Empty() {
+      ArrayList<String> array = new ArrayList<>(Arrays.asList(""));
+      ArrayList<String> array2 = new ArrayList<>(Arrays.asList("bilgisayar"));
+      assertFalse(new App().SearchWord(array, array2));
+    }
+
+    public void Array2Empty() {
+      ArrayList<String> array = new ArrayList<>(Arrays.asList("Araba", "kalem", "bilgisayar", "silgi"));
+      ArrayList<String> array2 = new ArrayList<>(Arrays.asList(""));
+      assertFalse(new App().SearchWord(array, array2));
+    }
+
+    public void Array2SizeMoreThan1() {
+      ArrayList<String> array = new ArrayList<>(Arrays.asList("Araba", "kalem", "bilgisayar", "silgi"));
+      ArrayList<String> array2 = new ArrayList<>(Arrays.asList("bilgisayar", "kalem"));
+      assertFalse(new App().SearchWord(array, array2));
+    }
 }

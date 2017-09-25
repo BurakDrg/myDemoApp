@@ -29,8 +29,9 @@ public class App
         get("/", (req, res) -> "Hello, World");
 
         post("/compute", (req, res) -> {
-          //System.out.println(req.queryParams("input1"));
-          //System.out.println(req.queryParams("input2"));
+
+	  //Input 1 Kelime dizisi ( 1 ve ya daha çok olması gerekiyor)
+	  //Input 2 Aranıcak kelime ( 1'den fazla olamaz )
 
           String input1 = req.queryParams("input1");
           java.util.Scanner sc1 = new java.util.Scanner(input1);
@@ -77,8 +78,10 @@ public class App
     }
 
      public static boolean SearchWord(ArrayList<String> A, ArrayList<String> B){
-	if(A.size()==0 || B.size()==0) return false;
+
+	if(A.size()==0 || B.size()==0  || B.size()>1 ) return false;
 	for(int i = 0; i < A.size();i++){
+		if(A.get(i).equals("") || B.get(0).equals("")) return false;
 		if(A.get(i).equals(B.get(0)))
 			count++;
 	}

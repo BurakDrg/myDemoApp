@@ -12,6 +12,7 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
+    static int count =0;
     public static boolean search(ArrayList<Integer> array, int e) {
       System.out.println("inside search");
       if (array == null) return false;
@@ -24,7 +25,7 @@ public class App
 
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
-	int count=0;
+	
         get("/", (req, res) -> "Hello, World");
 
         post("/compute", (req, res) -> {

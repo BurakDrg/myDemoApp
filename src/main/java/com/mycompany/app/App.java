@@ -34,12 +34,9 @@ public class App
           String input1 = req.queryParams("input1");
           java.util.Scanner sc1 = new java.util.Scanner(input1);
           sc1.useDelimiter("[;\r\n]+");
-          java.util.ArrayList<Integer> inputList = new java.util.ArrayList<>();
           java.util.ArrayList<String> inputListString = new java.util.ArrayList<>();
           while (sc1.hasNext())
           {
-            int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
-            inputList.add(value);
 	    inputListString.add(sc1.nextLine().replaceAll("\\s",""));
           }
           System.out.println(inputList);
